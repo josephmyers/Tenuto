@@ -2,7 +2,7 @@
   <PropertyGroup>
     <AssemblyName>tenuto.core</AssemblyName>
     <AssemblyTitle>Tenuto RELAX NG validator</AssemblyTitle>
-    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <Description>RELAX NG validator for dot net</Description>
     <Company>RELAX NG SourceForge Project</Company>
     <Copyright>Distributed under the BSD license</Copyright>
@@ -11,6 +11,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Tenuto</RootNamespace>
     <ProjectGuid>{7AE2AAB9-710F-4BCF-81B6-A624EC6AC3B5}</ProjectGuid>
+    <RepositoryUrl>https://github.com/josephmyers/Tenuto.git</RepositoryUrl>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
