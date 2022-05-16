@@ -28,6 +28,6 @@ jobs:
     - name: Pack
       run: dotnet pack -c Release
     - name: Push Package
-      run: dotnet nuget push "bin/Release/*.nupkg"
+      run: dotnet nuget push "bin/Release/*.nupkg" -k ${GITHUB_TOKEN}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
