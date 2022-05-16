@@ -26,8 +26,22 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
-    - name: Print
-      run: echo ${{ steps.gitversion.outputs.AssemblySemVer }}
+      
+      
+    - name: Install GitVersion
+      uses: gittools/actions/gitversion/setup@v0.9.4
+      with:
+        versionSpec: '5.x'
+    # Execute GitVersion against the current repository
+    - name: Use GitVersion
+      # Step id is used as reference for the output values
+      id: gitversion 
+      uses: gittools/actions/gitversion/execute@v0.9.4
+    # Echo out the version, helps with quick debugging of the build without having to expand the prior step.
+    - run: |
+        echo "NuGetVersionV2: ${{ steps.gitversion.outputs.NuGetVersionV2 }}"
+      
+      
 #    - name: Pack
  #     run: dotnet pack -c Release /p:PackageVersion=${{steps.gitversion.outputs.AssemblySemVer}}
   #  - name: Push to GitHub
