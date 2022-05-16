@@ -12,6 +12,7 @@
     <RootNamespace>Tenuto</RootNamespace>
     <ProjectGuid>{7AE2AAB9-710F-4BCF-81B6-A624EC6AC3B5}</ProjectGuid>
     <RepositoryUrl>https://github.com/josephmyers/Tenuto.git</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/josephmyers/Tenuto</PackageProjectUrl>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
