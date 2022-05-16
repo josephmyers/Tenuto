@@ -24,7 +24,7 @@ jobs:
         dotnet-version: 6.0.x
         source-url: https://nuget.pkg.github.com/josephmyers/index.json
       env:
-          NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          NUGET_AUTH_TOKEN: ${{secrets.PAT}}
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
@@ -34,4 +34,4 @@ jobs:
     - name: Push Package
       run: dotnet nuget push "bin/Release/*.nupkg" -k ${GITHUB_TOKEN}
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.PAT }}
