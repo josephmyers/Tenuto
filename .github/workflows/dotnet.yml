@@ -25,4 +25,4 @@ jobs:
     - name: Pack
       run: dotnet pack -c Release
     - name: Push Package
-      run: dotnet nuget push "bin/Release/*.nupkg" --api-key Tenuto
+      run: dotnet nuget push "bin/Release/*.nupkg" -s https://nuget.pkg.github.com/josephmyers/index.json --api-key Tenuto
