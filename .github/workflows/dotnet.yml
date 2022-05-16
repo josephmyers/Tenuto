@@ -29,6 +29,6 @@ jobs:
     - name: Pack
       run: dotnet pack -c Release
     - name: Push to GitHub
-      run: dotnet nuget push "bin/Release/*.nupkg" -k ${NUGET_AUTH_TOKEN}
+      run: dotnet nuget push "bin/Release/*.nupkg" -k ${NUGET_AUTH_TOKEN} --skip-duplicate
     - name: Push to Nuget
       run: dotnet nuget push "bin/Release/*.nupkg" -s https://api.nuget.org/v3/index.json
