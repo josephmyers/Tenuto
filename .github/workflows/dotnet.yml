@@ -18,6 +18,9 @@ jobs:
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: 6.0.x
+        source-url: https://nuget.pkg.github.com/josephmyers/index.json
+      env:
+          NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
@@ -25,4 +28,4 @@ jobs:
     - name: Pack
       run: dotnet pack -c Release
     - name: Push Package
-      run: dotnet nuget push "bin/Release/*.nupkg" -s https://nuget.pkg.github.com/josephmyers/index.json --api-key Tenuto
+      run: dotnet nuget push "bin/Release/*.nupkg"
