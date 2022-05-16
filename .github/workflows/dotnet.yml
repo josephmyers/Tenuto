@@ -28,5 +28,7 @@ jobs:
       run: dotnet build --no-restore
     - name: Pack
       run: dotnet pack -c Release
-    - name: Push Package
-      run: dotnet nuget push "bin/Release/*.nupkg" -k ${NUGET_AUTH_TOKEN}
+    - name: Push to GitHub
+      run: dotnet nuget push "bin/Release/*.nupkg" -k ${NUGET_AUTH_TOKEN} --skip-duplicate
+    - name: Push to Nuget
+      run: dotnet nuget push "bin/Release/*.nupkg" -s https://api.nuget.org/v3/index.json -k ${{secrets.NUGET_ORG}}
