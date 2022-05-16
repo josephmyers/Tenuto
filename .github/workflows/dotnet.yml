@@ -29,24 +29,21 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
       
-      
+      # Retrieve version for packaging
     - name: Install GitVersion
       uses: gittools/actions/gitversion/setup@v0.9.13
       with:
         versionSpec: '5.x'
-    # Execute GitVersion against the current repository
     - name: Use GitVersion
-      # Step id is used as reference for the output values
       id: gitversion 
       uses: gittools/actions/gitversion/execute@v0.9.13
-    # Echo out the version, helps with quick debugging of the build without having to expand the prior step.
     - run: |
-        echo "NuGetVersionV2: ${{ steps.gitversion.outputs.NuGetVersionV2 }}"
+        echo "NuGetVersionV2: ${{steps.gitversion.outputs.CommitsSinceVersionSource}}"
       
       
-#    - name: Pack
- #     run: dotnet pack -c Release /p:PackageVersion=${{steps.gitversion.outputs.AssemblySemVer}}
-  #  - name: Push to GitHub
-   #   run: dotnet nuget push "bin/Release/*.nupkg" -k ${NUGET_AUTH_TOKEN}
-    #- name: Push to Nuget
-     # run: dotnet nuget push "bin/Release/*.nupkg" -s https://api.nuget.org/v3/index.json -k ${{secrets.NUGET_ORG}}
+    - name: Pack
+      run: dotnet pack -c Release /p:PackageVersion=1.0.0.${{steps.gitversion.outputs.CommitsSinceVersionSource}}
+    - name: Push to GitHub
+      run: dotnet nuget push "bin/Release/*.nupkg" -k ${NUGET_AUTH_TOKEN}
+    - name: Push to Nuget
+      run: dotnet nuget push "bin/Release/*.nupkg" -s https://api.nuget.org/v3/index.json -k ${{secrets.NUGET_ORG}}
