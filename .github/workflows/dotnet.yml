@@ -22,3 +22,7 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
+    - name: Pack
+      run: dotnet pack -c Release
+    - name: Push Package
+      run: dotnet nuget push "bin/Release/*.nupkg" -s https://nuget.pkg.github.com/josephmyers/index.json --api-key Tenuto
