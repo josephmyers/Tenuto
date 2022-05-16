@@ -11,6 +11,10 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+      contents: write
 
     steps:
     - uses: actions/checkout@v3
