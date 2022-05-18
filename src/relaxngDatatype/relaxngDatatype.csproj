@@ -15,7 +15,4 @@
     <PropertyGroup>
         <SignAssembly>true</SignAssembly>
     </PropertyGroup>
-    <ItemGroup>
-      <Folder Include="obj\Debug\netstandard2.0" />
-    </ItemGroup>
 </Project>
