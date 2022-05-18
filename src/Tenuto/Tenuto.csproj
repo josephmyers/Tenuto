@@ -15,6 +15,9 @@
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>..\..\bin\Release\</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\relaxngDatatype\relaxngDatatype.csproj" />
   </ItemGroup>
