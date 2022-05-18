@@ -16,11 +16,6 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="lib\relaxngDatatype.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="relaxngDatatype, Version=0.0.0.0, Culture=neutral, PublicKeyToken=666de9dd91bf6401">
-      <HintPath>lib\relaxngDatatype.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\relaxngDatatype\relaxngDatatype.csproj" />
   </ItemGroup>
 </Project>

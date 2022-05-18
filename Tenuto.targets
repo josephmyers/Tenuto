@@ -1,0 +1,8 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <ItemGroup>
+        <Assembly Include="$(MSBuildThisFileDirectory)\content\lib\relaxngDatatype.dll" />
+    </ItemGroup>
+    <Target Name="CopyLogFiles" BeforeTargets="Build">
+        <Copy SourceFiles="@(Assembly)" DestinationFolder="$(TargetDir)" />
+    </Target>
+</Project>
